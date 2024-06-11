@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'shortclips/05_plot_motion_energy_model';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -418,7 +416,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fit-a-ridge-model-with-motion-energy-features">
+  <section id="fit-a-ridge-model-with-motion-energy-features">
 <h1>Fit a ridge model with motion energy features<a class="headerlink" href="#fit-a-ridge-model-with-motion-energy-features" title="Link to this heading">#</a></h1>
 <p>In this example, we model the fMRI responses with motion-energy features
 extracted from the movie stimulus. The model is a regularized linear regression
@@ -610,7 +608,7 @@ example for more details about the model definition.</p>
 </section>
 <section id="plot-the-model-performances">
 <h2>Plot the model performances<a class="headerlink" href="#plot-the-model-performances" title="Link to this heading">#</a></h2>
-<p>The performances are computed using the <span class="math notranslate nohighlight">\(R^2\)</span> scores.</p>
+<p>The performances are computed using the $R^2$ scores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
