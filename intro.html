@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to your Jupyter Book &#8212; Voxelwise modeling tutorials</title>
+    <title>Voxelwise modeling tutorials &#8212; Voxelwise modeling tutorials</title>
   
   
   
@@ -57,10 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Shortclips tutorial" href="shortclips/README.html" />
+    <link rel="next" title="Voxelwise modeling framework" href="voxelwise_modeling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,12 +176,35 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Welcome to your Jupyter Book
+                    Voxelwise modeling tutorials
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="shortclips/README.html">Shortclips tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voxelwise_modeling.html">Voxelwise modeling framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voxelwise_package.html">Helper Python package</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="shortclips/README.html">Shortclips tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="shortclips/00_download_shortclips.html">Download the data set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shortclips/00_setup_colab.html">Setup Google Colab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shortclips/01_plot_explainable_variance.html">Compute the explainable variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shortclips/02_plot_ridge_regression.html">Understand ridge regression and cross-validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shortclips/03_plot_wordnet_model.html">Fit a ridge model with wordnet features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shortclips/04_plot_hemodynamic_response.html">Visualize the hemodynamic response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shortclips/05_plot_motion_energy_model.html">Fit a ridge model with motion energy features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shortclips/06_plot_banded_ridge_model.html">Fit a banded ridge model with both wordnet and motion energy features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shortclips/07_extract_motion_energy.html">Extract motion energy features from the stimuli</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="vim2/README.html">Vim-2 tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="vim2/00_download_vim2.html">Download the data set from CRCNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim2/01_extract_motion_energy.html">Extract motion energy features from the stimuli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim2/02_plot_ridge_model.html">Fit a ridge model with motion energy features</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="voxelwise_modeling.html">Voxelwise modeling framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voxelwise_package.html">Helper Python package</a></li>
 </ul>
 
     </div>
@@ -281,7 +306,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/intro.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,7 +316,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.rst</span>
 </a>
 </li>
       
@@ -352,7 +377,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -363,11 +390,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to your Jupyter Book</h1>
+    <h1>Voxelwise modeling tutorials</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-as">Cite as</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -377,17 +416,58 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Link to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+  <section id="voxelwise-modeling-tutorials">
+<h1>Voxelwise modeling tutorials<a class="headerlink" href="#voxelwise-modeling-tutorials" title="Link to this heading">#</a></h1>
+<p>Welcome to the voxelwise modeling tutorials from the
+<a class="reference external" href="https://gallantlab.org">GallantLab</a>.</p>
+<p>If you use these tutorials for your work, consider citing the corresponding paper:</p>
+<p>Dupré la Tour, T., Visconti di Oleggio Castello, M., &amp; Gallant, J. L. (2024). The Voxelwise Modeling framework: a tutorial introduction to fitting encoding models to fMRI data. <a class="reference external" href="https://doi.org/10.31234/osf.io/t975e">https://doi.org/10.31234/osf.io/t975e</a></p>
+<p>You can find a copy of the paper <a class="reference external" href="https://github.com/gallantlab/voxelwise_tutorials/blob/main/paper/voxelwise_tutorials_paper.pdf">here</a>.</p>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
+<p>This website contains tutorials describing how to use the
+<a class="reference external" href="voxelwise_modeling.html">voxelwise modeling framework</a>.</p>
+<p>To explore these tutorials, one can:</p>
+<ul class="simple">
+<li><p>read the rendered examples in the tutorials
+<a class="reference external" href="_auto_examples/index.html">gallery of examples</a> (recommended)</p></li>
+<li><p>run the Python scripts (<a class="reference external" href="https://github.com/gallantlab/voxelwise_tutorials/tree/main/tutorials">tutorials</a> directory)</p></li>
+<li><p>run the Jupyter notebooks (<a class="reference external" href="https://github.com/gallantlab/voxelwise_tutorials/tree/main/tutorials/notebooks">tutorials/notebooks</a>
+directory)</p></li>
+<li><p>run the notebooks in Google Colab:
+<a class="reference external" href="https://colab.research.google.com/github/gallantlab/voxelwise_tutorials/blob/main/tutorials/notebooks/shortclips/merged_for_colab.ipynb">all notebooks</a> or
+<a class="reference external" href="https://colab.research.google.com/github/gallantlab/voxelwise_tutorials/blob/main/tutorials/notebooks/shortclips/merged_for_colab_model_fitting.ipynb">only the notebooks about model fitting</a></p></li>
+</ul>
+<p>The tutorials are best explored in order, starting with the <a class="reference external" href="_auto_examples/index.html">Shortclips
+tutorial</a>.</p>
+<p>The project is available on GitHub at <a class="reference external" href="https://github.com/gallantlab/voxelwise_tutorials">gallantlab/voxelwise_tutorials</a>. On top of the tutorials
+scripts, the GitHub repository contains a Python package called
+<code class="docutils literal notranslate"><span class="pre">voxelwise_tutorials</span></code>, which contains useful functions to download the data
+sets, load the files, process the data, and visualize the results. Install
+instructions are available <a class="reference external" href="voxelwise_package.html">here</a>.</p>
+</section>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="shortclips/README.html">Shortclips tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voxelwise_modeling.html">Voxelwise modeling framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voxelwise_package.html">Helper Python package</a></li>
 </ul>
+</div>
+</section>
+<section id="cite-as">
+<h2>Cite as<a class="headerlink" href="#cite-as" title="Link to this heading">#</a></h2>
+<p>If you use one of our packages in your work (<code class="docutils literal notranslate"><span class="pre">voxelwise_tutorials</span></code>
+<span class="xref std std-ref">[p1]</span>, <code class="docutils literal notranslate"><span class="pre">himalaya</span></code> <span class="xref std std-ref">[p2]</span>, <code class="docutils literal notranslate"><span class="pre">pycortex</span></code>
+<span class="xref std std-ref">[p3]</span>, or <code class="docutils literal notranslate"><span class="pre">pymoten</span></code> <span class="xref std std-ref">[p4]</span>), please cite the
+corresponding publications.</p>
+<p>If you use one of our public datasets in your work (vim-2
+<span class="xref std std-ref">[3b]</span>, shortclips <span class="xref std std-ref">[4b]</span>), please cite the
+corresponding publications.</p>
+</section>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -422,11 +502,11 @@ It does not go in-depth into any particular topic - check out <a class="referenc
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="shortclips/README.html"
+       href="voxelwise_modeling.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Shortclips tutorial</p>
+        <p class="prev-next-title">Voxelwise modeling framework</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -436,6 +516,25 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation">Navigation</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-as">Cite as</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

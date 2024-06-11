@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Shortclips tutorial &#8212; Voxelwise modeling tutorials</title>
+    <title>Download the data set &#8212; Voxelwise modeling tutorials</title>
   
   
   
@@ -57,13 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'shortclips/README';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'shortclips/00_download_shortclips';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Download the data set" href="00_download_shortclips.html" />
-    <link rel="prev" title="Helper Python package" href="../voxelwise_package.html" />
+    <link rel="next" title="Setup Google Colab" href="00_setup_colab.html" />
+    <link rel="prev" title="Shortclips tutorial" href="README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,8 +182,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../voxelwise_package.html">Helper Python package</a></li>
 </ul>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Shortclips tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="00_download_shortclips.html">Download the data set</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Shortclips tutorial</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Download the data set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="00_setup_colab.html">Setup Google Colab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_plot_explainable_variance.html">Compute the explainable variance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_plot_ridge_regression.html">Understand ridge regression and cross-validation</a></li>
@@ -275,7 +273,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fshortclips/README.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fshortclips/00_download_shortclips.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +303,7 @@
       
       
       
-      <li><a href="../_sources/shortclips/README.rst" target="_blank"
+      <li><a href="../_sources/shortclips/00_download_shortclips.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +313,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.rst</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -376,7 +374,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -387,11 +387,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Shortclips tutorial</h1>
+    <h1>Download the data set</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-this-data-set">Cite this data set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -401,44 +411,98 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="shortclips-tutorial">
-<h1>Shortclips tutorial<a class="headerlink" href="#shortclips-tutorial" title="Link to this heading">#</a></h1>
-<p>This tutorial describes how to perform voxelwise modeling on a visual
-imaging experiment.</p>
-<p><strong>Data set:</strong> This tutorial is based on publicly available data <a class="reference external" href="https://gin.g-node.org/gallantlab/shortclips">published on
-GIN</a> <span class="xref std std-ref">[4b]</span>.
-This data set contains BOLD fMRI responses in human subjects viewing a set of
-natural short movie clips. The functional data were collected in five subjects,
-in three sessions over three separate days for each subject. Details of the
-experiment are described in the original publication <span class="xref std std-ref">[4]</span>. If
-you publish work using this data set, please cite the original publications
-<span class="xref std std-ref">[4]</span>, and the GIN data set <span class="xref std std-ref">[4b]</span>.</p>
-<p><strong>Models:</strong>
-This tutorial implements different voxelwise encoding models:</p>
-<ul class="simple">
-<li><p>a ridge model with wordnet semantic features as described in <span class="xref std std-ref">[4]</span>.</p></li>
-<li><p>a ridge model with motion-energy features as described in <span class="xref std std-ref">[3]</span>.</p></li>
-<li><p>a banded-ridge model with both feature spaces as described in <span class="xref std std-ref">[12]</span>.</p></li>
-</ul>
-<p><strong>Scikit-learn API:</strong> These tutorials use <a class="reference external" href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a> to define the preprocessing
-steps, the modeling pipeline, and the cross-validation scheme. If you are not
-familiar with the scikit-learn API, we recommend the <a class="reference external" href="https://scikit-learn.org/stable/getting_started.html">getting started guide</a>. We also use a lot of
-the scikit-learn terminology, which is explained in great details in the
-<a class="reference external" href="https://scikit-learn.org/stable/glossary.html#glossary">glossary of common terms and API elements</a>.</p>
-<p><strong>Running time:</strong> Most of these tutorials can be run in a reasonable time
-(under 1 minute for most examples, ~7 minutes for the banded ridge example)
-with a GPU backend in <a class="reference external" href="https://github.com/gallantlab/himalaya">himalaya</a>.
-Using a CPU backend is slower (typically 10 times slower).</p>
-<p><strong>Requirements:</strong>
-This tutorial requires the following Python packages:</p>
-<ul class="simple">
-<li><p>voxelwise_tutorials  (this repository) and its dependencies</p></li>
-<li><p>cupy or pytorch  (optional, to use a GPU backend in himalaya)</p></li>
-</ul>
-<p><strong>Gallery of scripts:</strong>
-Click on each thumbnail below to open the corresponding page:</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="download-the-data-set">
+<h1>Download the data set<a class="headerlink" href="#download-the-data-set" title="Link to this heading">#</a></h1>
+<p>In this script, we download the data set from Wasabi or GIN. No account is
+required.</p>
+<section id="cite-this-data-set">
+<h2>Cite this data set<a class="headerlink" href="#cite-this-data-set" title="Link to this heading">#</a></h2>
+<p>This tutorial is based on publicly available data <a class="reference external" href="https://gin.g-node.org/gallantlab/shortclips">published on GIN</a>. If you publish any work using
+this data set, please cite the original publication [1]<em>, and the data set
+[2]</em>.</p>
+</section>
+<section id="download">
+<h2>Download<a class="headerlink" href="#download" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># path of the data directory</span>
+<span class="kn">from</span> <span class="nn">voxelwise_tutorials.io</span> <span class="kn">import</span> <span class="n">get_data_home</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="n">get_data_home</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;shortclips&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># path of the data directory</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">voxelwise_tutorials.io</span> <span class="kn">import</span> <span class="n">get_data_home</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">directory</span> <span class="o">=</span> <span class="n">get_data_home</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;shortclips&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;voxelwise_tutorials&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will only use the first subject in this tutorial, but you can run the same
+analysis on the four other subjects. Uncomment the lines in <code class="docutils literal notranslate"><span class="pre">DATAFILES</span></code> to
+download more subjects.</p>
+<p>We also skip the stimuli files, since the dataset provides two preprocessed
+feature spaces to perform voxelwise modeling without requiring the original
+stimuli.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">voxelwise_tutorials.io</span> <span class="kn">import</span> <span class="n">download_datalad</span>
+
+<span class="n">DATAFILES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;features/motion_energy.hdf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;features/wordnet.hdf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mappers/S01_mappers.hdf&quot;</span><span class="p">,</span>
+    <span class="c1"># &quot;mappers/S02_mappers.hdf&quot;,</span>
+    <span class="c1"># &quot;mappers/S03_mappers.hdf&quot;,</span>
+    <span class="c1"># &quot;mappers/S04_mappers.hdf&quot;,</span>
+    <span class="c1"># &quot;mappers/S05_mappers.hdf&quot;,</span>
+    <span class="s2">&quot;responses/S01_responses.hdf&quot;</span><span class="p">,</span>
+    <span class="c1"># &quot;responses/S02_responses.hdf&quot;,</span>
+    <span class="c1"># &quot;responses/S03_responses.hdf&quot;,</span>
+    <span class="c1"># &quot;responses/S04_responses.hdf&quot;,</span>
+    <span class="c1"># &quot;responses/S05_responses.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/test.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_00.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_01.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_02.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_03.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_04.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_05.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_06.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_07.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_08.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_09.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_10.hdf&quot;,</span>
+    <span class="c1"># &quot;stimuli/train_11.hdf&quot;,</span>
+<span class="p">]</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;https://gin.g-node.org/gallantlab/shortclips&quot;</span>
+
+<span class="k">for</span> <span class="n">datafile</span> <span class="ow">in</span> <span class="n">DATAFILES</span><span class="p">:</span>
+    <span class="n">local_filename</span> <span class="o">=</span> <span class="n">download_datalad</span><span class="p">(</span><span class="n">datafile</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="n">directory</span><span class="p">,</span>
+                                      <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p>.. [1] Huth, A. G., Nishimoto, S., Vu, A. T., &amp; Gallant, J. L. (2012). A
+continuous semantic space describes the representation of thousands of
+object and action categories across the human brain. Neuron, 76(6),
+1210-1224.</p>
+<p>.. [2] Huth, A. G., Nishimoto, S., Vu, A. T., Dupré la Tour, T., &amp; Gallant, J. L. (2022).
+Gallant Lab Natural Short Clips 3T fMRI Data. <a class="reference external" href="http://dx.doi.org/10.12751/g-node.vy1zjd">http://dx.doi.org/10.12751/g-node.vy1zjd</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -472,20 +536,20 @@ Click on each thumbnail below to open the corresponding page:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../voxelwise_package.html"
+       href="README.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Helper Python package</p>
+        <p class="prev-next-title">Shortclips tutorial</p>
       </div>
     </a>
     <a class="right-next"
-       href="00_download_shortclips.html"
+       href="00_setup_colab.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Download the data set</p>
+        <p class="prev-next-title">Setup Google Colab</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -495,6 +559,23 @@ Click on each thumbnail below to open the corresponding page:</p>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-this-data-set">Cite this data set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
