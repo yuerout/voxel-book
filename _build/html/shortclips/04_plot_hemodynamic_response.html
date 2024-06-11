@@ -57,8 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'shortclips/04_plot_hemodynamic_response';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -418,7 +417,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="visualize-the-hemodynamic-response">
+  <section id="visualize-the-hemodynamic-response">
 <h1>Visualize the hemodynamic response<a class="headerlink" href="#visualize-the-hemodynamic-response" title="Link to this heading">#</a></h1>
 <p>In this example, we describe how the hemodynamic response function was
 estimated in the previous model. We fit the same ridge model as in the previous
@@ -645,8 +644,8 @@ copies of the original feature shifted forward in time by how many samples we
 requested (in this case, from 0 to 4 samples, which correspond to 0, 2, 4, 6,
 and 8 s in time with a 2 s TR).</p>
 <p>When these delayed features are used to fit a voxelwise encoding model, the
-brain response <span class="math notranslate nohighlight">\(y\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is simultaneously modeled by the
-feature <span class="math notranslate nohighlight">\(x\)</span> at times <span class="math notranslate nohighlight">\(t-0, t-2, t-4, t-6, t-8\)</span>. In the remaining
+brain response $y$ at time $t$ is simultaneously modeled by the
+feature $x$ at times $t-0, t-2, t-4, t-6, t-8$. In the remaining
 of this example we will see that this method improves model prediction
 accuracy and it allows to account for the underlying shape of the hemodynamic
 response function.</p>
@@ -740,11 +739,12 @@ overfitting the most.</p>
 how the fitted ridge regression weights follow the hemodynamic response
 function (HRF).</p>
 <p>Fitting a kernel ridge regression results in a set of coefficients called the
-“dual” coefficients <span class="math notranslate nohighlight">\(w\)</span>. These coefficients differ from the “primal”
-coefficients <span class="math notranslate nohighlight">\(\beta\)</span> obtained with a ridge regression, but the primal
+“dual” coefficients $w$. These coefficients differ from the “primal”
+coefficients $\beta$ obtained with a ridge regression, but the primal
 coefficients can be computed from the dual coefficients using the training
-features <span class="math notranslate nohighlight">\(X\)</span>:</p>
-<p>\begin{align}\beta = X^\top w\end{align}</p>
+features $X$:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8113ccd8-92e5-4fb7-956f-eb3f2bb5c49f">
+<span class="eqno">(7)<a class="headerlink" href="#equation-8113ccd8-92e5-4fb7-956f-eb3f2bb5c49f" title="Permalink to this equation">#</a></span>\[\begin{align}\beta = X^\top w\end{align}\]</div>
 <p>To better visualize the HRF, we will refit a model with more delays, but only
 on a selection of voxels to speed up the computations.</p>
 <div class="cell docutils container">

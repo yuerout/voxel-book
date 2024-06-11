@@ -57,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'shortclips/03_plot_wordnet_model';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -419,7 +417,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fit-a-ridge-model-with-wordnet-features">
+  <section id="fit-a-ridge-model-with-wordnet-features">
 <h1>Fit a ridge model with wordnet features<a class="headerlink" href="#fit-a-ridge-model-with-wordnet-features" title="Link to this heading">#</a></h1>
 <p>In this example, we model the fMRI responses with semantic “wordnet” features,
 manually annotated on each frame of the movie stimulus. The model is a
@@ -733,8 +731,8 @@ more information.</p>
 </div>
 </div>
 </div>
-<p>..and score on the test set. Here the scores are the <span class="math notranslate nohighlight">\(R^2\)</span> scores, with
-values in <span class="math notranslate nohighlight">\(]-\infty, 1]\)</span>. A value of <span class="math notranslate nohighlight">\(1\)</span> means the predictions
+<p>..and score on the test set. Here the scores are the $R^2$ scores, with
+values in $]-\infty, 1]$. A value of $1$ means the predictions
 are perfect.</p>
 <p>Note that since <code class="docutils literal notranslate"><span class="pre">himalaya</span></code> is implementing multiple-targets
 models, the <code class="docutils literal notranslate"><span class="pre">score</span></code> method differs from <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> API and returns
@@ -778,7 +776,7 @@ mapper to Freesurfer average surface.)</p>
 </div>
 </div>
 <p>We can see that the “wordnet” features successfully predict part of the
-measured brain activity, with <span class="math notranslate nohighlight">\(R^2\)</span> scores as high as 0.4. Note that
+measured brain activity, with $R^2$ scores as high as 0.4. Note that
 these scores are generalization scores, since they are computed on a test set
 that was not used during model fitting. Since we fitted a model independently
 in each voxel, we can inspect the generalization performances at the best
@@ -834,7 +832,7 @@ regression coefficients may have very different scales. In turn, these
 different scales can introduce a bias in the interpretation, focusing the
 attention disproportionately on voxels fitted with the lowest alpha. To
 address this issue, we rescale the regression coefficient to have a norm
-equal to the square-root of the <span class="math notranslate nohighlight">\(R^2\)</span> scores. We found empirically that
+equal to the square-root of the $R^2$ scores. We found empirically that
 this rescaling best matches results obtained with a regularization shared
 accross voxels. This rescaling also removes the need to select only best
 performing voxels, because voxels with low prediction accuracies are rescaled

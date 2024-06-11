@@ -57,8 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'shortclips/01_plot_explainable_variance';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -415,7 +414,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="compute-the-explainable-variance">
+  <section id="compute-the-explainable-variance">
 <h1>Compute the explainable variance<a class="headerlink" href="#compute-the-explainable-variance" title="Link to this heading">#</a></h1>
 <p>Before fitting any voxelwise model to fMRI responses, it is good practice to
 quantify the amount of signal in the test set that can be predicted by an
@@ -432,13 +431,14 @@ responses over repeats of the same stimulus or experiment. The variance of the
 estimated stimulus-dependent signal, which we call the explainable variance, is
 proportional to the maximum prediction accuracy that can be obtained by a
 voxelwise encoding model in the test set.</p>
-<p>Mathematically, let <span class="math notranslate nohighlight">\(y_i, i = 1 \dots N\)</span> be the measured signal in a
-voxel for each of the <span class="math notranslate nohighlight">\(N\)</span> repetitions of the same stimulus and
-<span class="math notranslate nohighlight">\(\bar{y} = \frac{1}{N}\sum_{i=1}^Ny_i\)</span> the average brain response
+<p>Mathematically, let $y_i, i = 1 \dots N$ be the measured signal in a
+voxel for each of the $N$ repetitions of the same stimulus and
+$\bar{y} = \frac{1}{N}\sum_{i=1}^Ny_i$ the average brain response
 across repetitions. For each repeat, we define the residual timeseries between
-brain response and average brain response as <span class="math notranslate nohighlight">\(r_i = y_i - \bar{y}\)</span>. The
+brain response and average brain response as $r_i = y_i - \bar{y}$. The
 explainable variance (EV) is estimated as</p>
-<p>\begin{align}\text{EV} = \frac{1}{N}\sum_{i=1}^N\text{Var}(y_i) - \frac{N}{N-1}\sum_{i=1}^N\text{Var}(r_i)\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bbae03d3-1327-4ab9-ba08-dca381d5e527">
+<span class="eqno">(1)<a class="headerlink" href="#equation-bbae03d3-1327-4ab9-ba08-dca381d5e527" title="Permalink to this equation">#</a></span>\[\begin{align}\text{EV} = \frac{1}{N}\sum_{i=1}^N\text{Var}(y_i) - \frac{N}{N-1}\sum_{i=1}^N\text{Var}(r_i)\end{align}\]</div>
 <p>In the literature, the explainable variance is also known as the <em>signal
 power</em>. For more information, see these references [1]_ [2]_ [3]_.</p>
 <section id="path-of-the-data-directory">

@@ -57,8 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'shortclips/02_plot_ridge_regression';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -413,22 +412,24 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="understand-ridge-regression-and-cross-validation">
+  <section id="understand-ridge-regression-and-cross-validation">
 <h1>Understand ridge regression and cross-validation<a class="headerlink" href="#understand-ridge-regression-and-cross-validation" title="Link to this heading">#</a></h1>
 <p>In future examples, we will model the fMRI responses using a regularized linear
 regression known as <em>ridge regression</em>. This example explains why we use ridge
 regression, and how to use cross-validation to select the appropriate
 regularization hyper-parameter.</p>
 <p>Linear regression is a method to model the relation between some input
-variables <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{(n \times p)}\)</span> (the features) and an output
-variable <span class="math notranslate nohighlight">\(y \in \mathbb{R}^{n}\)</span> (the target). Specifically, linear
-regression uses a vector of coefficient <span class="math notranslate nohighlight">\(w \in \mathbb{R}^{p}\)</span>` to
+variables $X \in \mathbb{R}^{(n \times p)}$ (the features) and an output
+variable $y \in \mathbb{R}^{n}$ (the target). Specifically, linear
+regression uses a vector of coefficient $w \in \mathbb{R}^{p}$` to
 predict the output</p>
-<p>\begin{align}\hat{y} = Xw\end{align}</p>
-<p>The model is considered accurate if the predictions <span class="math notranslate nohighlight">\(\hat{y}\)</span> are close
-to the true output values <span class="math notranslate nohighlight">\(y\)</span>. Therefore,  a good linear regression model
-is given by the vector <span class="math notranslate nohighlight">\(w\)</span> that minimizes the sum of squared errors:</p>
-<p>\begin{align}w = \arg\min_w ||Xw - y||^2\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-42db88f3-bc92-4e9b-a0a9-1420d8147d30">
+<span class="eqno">(2)<a class="headerlink" href="#equation-42db88f3-bc92-4e9b-a0a9-1420d8147d30" title="Permalink to this equation">#</a></span>\[\begin{align}\hat{y} = Xw\end{align}\]</div>
+<p>The model is considered accurate if the predictions $\hat{y}$ are close
+to the true output values $y$. Therefore,  a good linear regression model
+is given by the vector $w$ that minimizes the sum of squared errors:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5624f1b9-3132-4f61-a8bf-dbc5878993e6">
+<span class="eqno">(3)<a class="headerlink" href="#equation-5624f1b9-3132-4f61-a8bf-dbc5878993e6" title="Permalink to this equation">#</a></span>\[\begin{align}w = \arg\min_w ||Xw - y||^2\end{align}\]</div>
 <p>This is the simplest model for linear regression, and it is known as <em>ordinary
 least squares</em> (OLS).</p>
 <section id="ordinary-least-squares-ols">
@@ -483,7 +484,8 @@ accuracy of the model, and thus the squared loss.</p>
 </div>
 <p>The linear coefficient leading to the minimum squared loss can be found
 analytically with the formula:</p>
-<p>\begin{align}w = (X^\top X)^{-1}  X^\top y\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5a529192-6440-474c-93d7-d1c9cc248b74">
+<span class="eqno">(4)<a class="headerlink" href="#equation-5a529192-6440-474c-93d7-d1c9cc248b74" title="Permalink to this equation">#</a></span>\[\begin{align}w = (X^\top X)^{-1}  X^\top y\end{align}\]</div>
 <p>This is the OLS solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -559,10 +561,10 @@ makes the OLS solution less robust to noise in some particular directions
 </div>
 </div>
 <p>The different robustness to noise can be understood mathematically by the
-fact that the OLS solution requires inverting the matrix <span class="math notranslate nohighlight">\((X^T X)\)</span>. The
-matrix inversion amounts to inverting the eigenvalues <span class="math notranslate nohighlight">\(\lambda_k\)</span> of
+fact that the OLS solution requires inverting the matrix $(X^T X)$. The
+matrix inversion amounts to inverting the eigenvalues $\lambda_k$ of
 the matrix. When the features are highly correlated, some eigenvalues
-<span class="math notranslate nohighlight">\(\lambda_k\)</span> are close to zero, and a small change in the features can
+$\lambda_k$ are close to zero, and a small change in the features can
 have a large effect on the inverse. Thus, having small eigenvalues reduces
 the stability of the inversion. If the correlation is even higher, the
 smallest eigenvalues get closer to zero, and the OLS solution becomes even
@@ -599,11 +601,12 @@ data.</p>
 <p>To solve the instability and under-determinacy issues of OLS, OLS can be
 extended to <em>ridge regression</em>. Ridge regression considers a different
 optimization problem:</p>
-<p>\begin{align}w = \arg\min_w ||Xw - y||^2 + \alpha ||w||^2\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a1c54667-a679-46ed-b256-6c928750c6d3">
+<span class="eqno">(5)<a class="headerlink" href="#equation-a1c54667-a679-46ed-b256-6c928750c6d3" title="Permalink to this equation">#</a></span>\[\begin{align}w = \arg\min_w ||Xw - y||^2 + \alpha ||w||^2\end{align}\]</div>
 <p>This optimization problem contains two terms: (i) a <em>data-fitting term</em>
-<span class="math notranslate nohighlight">\(||Xw - y||^2\)</span>, which ensures the regression correctly fits the
-training data; and (ii) a regularization term <span class="math notranslate nohighlight">\(\alpha||w||^2\)</span>, which
-forces the coefficients <span class="math notranslate nohighlight">\(w\)</span> to be close to zero. The regularization
+$||Xw - y||^2$, which ensures the regression correctly fits the
+training data; and (ii) a regularization term $\alpha||w||^2$, which
+forces the coefficients $w$ to be close to zero. The regularization
 term increases the stability of the solution, at the cost of a bias toward
 zero.</p>
 <p>In the regularization term, <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is a positive hyperparameter that
@@ -628,13 +631,14 @@ squared loss.</p>
 <p>To understand why the regularization term makes the solution more robust to
 noise, let’s consider the ridge solution. The ridge solution can be found
 analytically with the formula:</p>
-<p>\begin{align}w = (X^\top X + \alpha I)^{-1}  X^\top y\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-536bb812-2fe8-4eff-8588-967a63b5c624">
+<span class="eqno">(6)<a class="headerlink" href="#equation-536bb812-2fe8-4eff-8588-967a63b5c624" title="Permalink to this equation">#</a></span>\[\begin{align}w = (X^\top X + \alpha I)^{-1}  X^\top y\end{align}\]</div>
 <p>where <code class="docutils literal notranslate"><span class="pre">I</span></code> is the identity matrix. In this formula, we can see that the
-inverted matrix is now <span class="math notranslate nohighlight">\((X^\top X + \alpha I)\)</span>. Compared to OLS, the
-additional term <span class="math notranslate nohighlight">\(\alpha I\)</span> adds a positive value <code class="docutils literal notranslate"><span class="pre">alpha</span></code> to all
-eigenvalues <span class="math notranslate nohighlight">\(\lambda_k\)</span> of <span class="math notranslate nohighlight">\((X^\top X)\)</span> before the matrix
-inversion. Inverting <span class="math notranslate nohighlight">\((\lambda_k + \alpha)\)</span> instead of
-<span class="math notranslate nohighlight">\(\lambda_k\)</span> reduces the instability caused by small eigenvalues. This
+inverted matrix is now $(X^\top X + \alpha I)$. Compared to OLS, the
+additional term $\alpha I$ adds a positive value <code class="docutils literal notranslate"><span class="pre">alpha</span></code> to all
+eigenvalues $\lambda_k$ of $(X^\top X)$ before the matrix
+inversion. Inverting $(\lambda_k + \alpha)$ instead of
+$\lambda_k$ reduces the instability caused by small eigenvalues. This
 explains why the ridge solution is more robust to noise than the OLS
 solution.</p>
 <p>In the following plots, we can see that even with a stronger correlation, the
@@ -651,7 +655,7 @@ the OLS solution would be far off.</p>
 </div>
 </div>
 </div>
-<p>Changing the regularization hyperparameter <span class="math notranslate nohighlight">\(\alpha\)</span> leads to another
+<p>Changing the regularization hyperparameter $\alpha$ leads to another
 ridge solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -664,21 +668,21 @@ ridge solution.</p>
 </div>
 </div>
 </div>
-<p>Side note: For every <span class="math notranslate nohighlight">\(\alpha\)</span>, at the corresponding ridge solution, the
+<p>Side note: For every $\alpha$, at the corresponding ridge solution, the
 line of equal regularization and the line of equal loss are tangent. If the
 two lines were crossing, one could improve the ridge solution by moving along
 one line. It would improve one term while keeping the other term constant.</p>
 </section>
 <section id="hyperparameter-selection">
 <h2>Hyperparameter selection<a class="headerlink" href="#hyperparameter-selection" title="Link to this heading">#</a></h2>
-<p>One issue with ridge regression is that the hyperparameter <span class="math notranslate nohighlight">\(\alpha\)</span> is
+<p>One issue with ridge regression is that the hyperparameter $\alpha$ is
 arbitrary. Different choices of hyperparameter lead to different models. To
 compare these models, we cannot compare the ability to fit the training data,
-because the best model would just be OLS (<span class="math notranslate nohighlight">\(alpha = 0\)</span>). Instead, we
+because the best model would just be OLS ($alpha = 0$). Instead, we
 want to compare the ability of each model to generalize to new data. To
 estimate a model ability to generalize, we can compute its prediction
 accuracy on a separate dataset that was not used during the model fitting
-(i.e. not used to find the coefficients <span class="math notranslate nohighlight">\(w\)</span>).</p>
+(i.e. not used to find the coefficients $w$).</p>
 <p>To illustrate this idea, we can split the data into two subsets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -710,8 +714,8 @@ accuracy on a separate dataset that was not used during the model fitting
 </div>
 </div>
 <p>In this way, we can evaluate the ridge regression (fit with a specific
-<span class="math notranslate nohighlight">\(\alpha\)</span>) on its ability to generalize to new data. If we do that for
-different hyperparameter candidates <span class="math notranslate nohighlight">\(\alpha\)</span>, we can select the model
+$\alpha$) on its ability to generalize to new data. If we do that for
+different hyperparameter candidates $\alpha$, we can select the model
 leading to the best out-of-set prediction accuracy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -742,7 +746,7 @@ ridge regression is better than OLS.</p>
 on the grid. It either means that the grid is too small, or that the
 regression does not find a predictive link between the features and the
 target. In this case, the model with the lowest generalization error always
-predict zero (<span class="math notranslate nohighlight">\(w=0\)</span>).</p>
+predict zero ($w=0$).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noise</span> <span class="o">=</span> <span class="mi">100</span>
@@ -752,7 +756,7 @@ predict zero (<span class="math notranslate nohighlight">\(w=0\)</span>).</p>
 </div>
 </div>
 </div>
-<p>To summarize, to select the best hyperparameter <span class="math notranslate nohighlight">\(\alpha\)</span>, the standard
+<p>To summarize, to select the best hyperparameter $\alpha$, the standard
 method is to perform a grid search:</p>
 <ul class="simple">
 <li><p>Split the training set into two subsets: one subset used to fit the
@@ -761,7 +765,7 @@ set</em>)</p></li>
 <li><p>Define a number of hyperparameter candidates, for example [0.1, 1, 10,
 100].</p></li>
 <li><p>Fit a separate ridge model with each hyperparameter candidate
-<span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+$\alpha$.</p></li>
 <li><p>Compute the prediction accuracy on the validation set.</p></li>
 <li><p>Select the hyperparameter candidate leading to the best validation
 accuracy.</p></li>

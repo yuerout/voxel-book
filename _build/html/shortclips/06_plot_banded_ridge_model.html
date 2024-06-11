@@ -57,8 +57,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'shortclips/06_plot_banded_ridge_model';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -418,7 +417,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fit-a-banded-ridge-model-with-both-wordnet-and-motion-energy-features">
+  <section id="fit-a-banded-ridge-model-with-both-wordnet-and-motion-energy-features">
 <h1>Fit a banded ridge model with both wordnet and motion energy features<a class="headerlink" href="#fit-a-banded-ridge-model-with-both-wordnet-and-motion-energy-features" title="Link to this heading">#</a></h1>
 <p>In this example, we model the fMRI responses with a <code class="docutils literal notranslate"><span class="pre">banded</span> <span class="pre">ridge</span> <span class="pre">regression</span></code>,
 with two different feature spaces: motion energy and wordnet categories.</p>
@@ -835,10 +834,11 @@ way to disentangle the contribution of the two feature spaces. To do so, we
 take the kernel weights and the ridge (dual) weights corresponding to each
 feature space, and use them to compute the prediction from each feature space
 separately.</p>
-<p>\begin{align}\hat{y} = \sum_i^m \hat{y}_i = \sum_i^m \gamma_i K_i \hat{w}\end{align}</p>
-<p>Then, we use these split predictions to compute split <span class="math notranslate nohighlight">\(\tilde{R}^2_i\)</span>
+<div class="amsmath math notranslate nohighlight" id="equation-b46f7ca4-42df-4a8a-9831-b2354a875ab1">
+<span class="eqno">(8)<a class="headerlink" href="#equation-b46f7ca4-42df-4a8a-9831-b2354a875ab1" title="Permalink to this equation">#</a></span>\[\begin{align}\hat{y} = \sum_i^m \hat{y}_i = \sum_i^m \gamma_i K_i \hat{w}\end{align}\]</div>
+<p>Then, we use these split predictions to compute split $\tilde{R}^2_i$
 scores. These scores are corrected so that their sum is equal to the
-<span class="math notranslate nohighlight">\(R^2\)</span> score of the full prediction <span class="math notranslate nohighlight">\(\hat{y}\)</span>.</p>
+$R^2$ score of the full prediction $\hat{y}$.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">himalaya.scoring</span> <span class="kn">import</span> <span class="n">r2_score_split</span>
