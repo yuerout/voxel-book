@@ -4,39 +4,39 @@
 format: jb-article
 root: intro
 sections:
-- file: shortclips/README
+- file: tutorials/notebooks/shortclips/README
   title: Shortclips tutorial
   sections:
-  - file: shortclips/00_download_shortclips
+  - file: tutorials/notebooks/shortclips/00_download_shortclips
     title: Download the data set
-  - file: shortclips/00_setup_colab
+  - file: tutorials/notebooks/shortclips/00_setup_colab
     title: Setup Google Colab
-  - file: shortclips/01_plot_explainable_variance
+  - file: tutorials/notebooks/shortclips/01_plot_explainable_variance
     title: Compute the explainable variance
-  - file: shortclips/02_plot_ridge_regression
+  - file: tutorials/notebooks/shortclips/02_plot_ridge_regression
     title: Understand ridge regression and cross-validation
-  - file: shortclips/03_plot_wordnet_model
+  - file: tutorials/notebooks/shortclips/03_plot_wordnet_model
     title: Fit a ridge model with wordnet features
-  - file: shortclips/04_plot_hemodynamic_response
+  - file: tutorials/notebooks/shortclips/04_plot_hemodynamic_response
     title: Visualize the hemodynamic response
-  - file: shortclips/05_plot_motion_energy_model
+  - file: tutorials/notebooks/shortclips/05_plot_motion_energy_model
     title: Fit a ridge model with motion energy features
-  - file: shortclips/06_plot_banded_ridge_model
+  - file: tutorials/notebooks/shortclips/06_plot_banded_ridge_model
     title: Fit a banded ridge model with both wordnet and motion energy features
-  - file: shortclips/07_extract_motion_energy
+  - file: tutorials/notebooks/shortclips/07_extract_motion_energy
     title: Extract motion energy features from the stimuli
-- file: vim2/README
+- file: tutorials/notebooks/vim2/README
   title: Vim-2 tutorial
   sections:
-  - file: vim2/00_download_vim2
+  - file: tutorials/notebooks/vim2/00_download_vim2
     title: Download the data set from CRCNS
-  - file: vim2/01_extract_motion_energy
+  - file: tutorials/notebooks/vim2/01_extract_motion_energy
     title: Extract motion energy features from the stimuli
-  - file: vim2/02_plot_ridge_model
+  - file: tutorials/notebooks/vim2/02_plot_ridge_model
     title: Fit a ridge model with motion energy features
-- file: voxelwise_modeling
+- file: doc/voxelwise_modeling
   title: Voxelwise modeling framework
-- file: voxelwise_package
+- file: doc/voxelwise_package
   title: Helper Python package
   
 
