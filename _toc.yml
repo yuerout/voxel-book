@@ -38,6 +38,8 @@ sections:
   title: Voxelwise modeling framework
 - file: doc/voxelwise_package
   title: Helper Python package
+- file: doc/references
+  title: References
   
 
 

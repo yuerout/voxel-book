@@ -8,7 +8,14 @@ logo: flatmap.png
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: cache
+  timeout: -1 # removes restriction
+  exclude_patterns:
+    - 'tutorials/notebooks/shortclips/00_download_shortclips.ipynb'
+    - 'tutorials/notebooks/shortclips/00_setup_colab.ipynb'
+    - 'tutorials/notebooks/shortclips/07_extract_motion_energy.ipynb'
+    - 'tutorials/notebooks/vim2/01_extract_motion_energy.ipynb'
+    - 'tutorials/notebooks/vim2/00_download_vim2.ipynb'
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -37,6 +44,4 @@ html:
 #     # including those that are enabled by default!
 #     - amsmath
 
-sphinx:
-  config:
-    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  
