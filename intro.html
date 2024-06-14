@@ -57,11 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Voxelwise modeling framework" href="voxelwise_modeling.html" />
+    <link rel="next" title="Shortclips tutorial" href="tutorials/notebooks/shortclips/README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,30 +181,27 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="voxelwise_modeling.html">Voxelwise modeling framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="voxelwise_package.html">Helper Python package</a></li>
-</ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="shortclips/README.html">Shortclips tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="shortclips/00_download_shortclips.html">Download the data set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shortclips/00_setup_colab.html">Setup Google Colab</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shortclips/01_plot_explainable_variance.html">Compute the explainable variance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shortclips/02_plot_ridge_regression.html">Understand ridge regression and cross-validation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shortclips/03_plot_wordnet_model.html">Fit a ridge model with wordnet features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shortclips/04_plot_hemodynamic_response.html">Visualize the hemodynamic response</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shortclips/05_plot_motion_energy_model.html">Fit a ridge model with motion energy features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shortclips/06_plot_banded_ridge_model.html">Fit a banded ridge model with both wordnet and motion energy features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shortclips/07_extract_motion_energy.html">Extract motion energy features from the stimuli</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tutorials/notebooks/shortclips/README.html">Shortclips tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/shortclips/00_download_shortclips.html">Download the data set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/shortclips/00_setup_colab.html">Setup Google Colab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/shortclips/01_plot_explainable_variance.html">Compute the explainable variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/shortclips/02_plot_ridge_regression.html">Understand ridge regression and cross-validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/shortclips/03_plot_wordnet_model.html">Fit a ridge model with wordnet features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/shortclips/04_plot_hemodynamic_response.html">Visualize the hemodynamic response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/shortclips/05_plot_motion_energy_model.html">Fit a ridge model with motion energy features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/shortclips/06_plot_banded_ridge_model.html">Fit a banded ridge model with both wordnet and motion energy features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/shortclips/07_extract_motion_energy.html">Extract motion energy features from the stimuli</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="vim2/README.html">Vim-2 tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="vim2/00_download_vim2.html">Download the data set from CRCNS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vim2/01_extract_motion_energy.html">Extract motion energy features from the stimuli</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vim2/02_plot_ridge_model.html">Fit a ridge model with motion energy features</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tutorials/notebooks/vim2/README.html">Vim-2 tutorial</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/vim2/00_download_vim2.html">Download the data set from CRCNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/vim2/01_extract_motion_energy.html">Extract motion energy features from the stimuli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/notebooks/vim2/02_plot_ridge_model.html">Fit a ridge model with motion energy features</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="voxelwise_modeling.html">Voxelwise modeling framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="voxelwise_package.html">Helper Python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/voxelwise_modeling.html">Voxelwise modeling framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/voxelwise_package.html">Helper Python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/references.html">References</a></li>
 </ul>
 
     </div>
@@ -450,20 +448,16 @@ instructions are available <a class="reference external" href="voxelwise_package
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="voxelwise_modeling.html">Voxelwise modeling framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="voxelwise_package.html">Helper Python package</a></li>
-</ul>
 </div>
 </section>
 <section id="cite-as">
 <h2>Cite as<a class="headerlink" href="#cite-as" title="Link to this heading">#</a></h2>
 <p>If you use one of our packages in your work (<code class="docutils literal notranslate"><span class="pre">voxelwise_tutorials</span></code>
-<span class="xref std std-ref">[p1]</span>, <code class="docutils literal notranslate"><span class="pre">himalaya</span></code> <span class="xref std std-ref">[p2]</span>, <code class="docutils literal notranslate"><span class="pre">pycortex</span></code>
-<span class="xref std std-ref">[p3]</span>, or <code class="docutils literal notranslate"><span class="pre">pymoten</span></code> <span class="xref std std-ref">[p4]</span>), please cite the
+<a class="reference internal" href="doc/references.html#dup2023"><span class="std std-ref">[p1]</span></a>, <code class="docutils literal notranslate"><span class="pre">himalaya</span></code> <a class="reference internal" href="doc/references.html#dup2022"><span class="std std-ref">[p2]</span></a>, <code class="docutils literal notranslate"><span class="pre">pycortex</span></code>
+<a class="reference internal" href="doc/references.html#gao2015"><span class="std std-ref">[p3]</span></a>, or <code class="docutils literal notranslate"><span class="pre">pymoten</span></code> <a class="reference internal" href="doc/references.html#nun2021"><span class="std std-ref">[p4]</span></a>), please cite the
 corresponding publications.</p>
 <p>If you use one of our public datasets in your work (vim-2
-<span class="xref std std-ref">[3b]</span>, shortclips <span class="xref std std-ref">[4b]</span>), please cite the
+<a class="reference internal" href="doc/references.html#nis2011data"><span class="std std-ref">[3b]</span></a>, shortclips <a class="reference internal" href="doc/references.html#hut2012data"><span class="std std-ref">[4b]</span></a>), please cite the
 corresponding publications.</p>
 </section>
 <div class="toctree-wrapper compound">
@@ -501,11 +495,11 @@ corresponding publications.</p>
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="voxelwise_modeling.html"
+       href="tutorials/notebooks/shortclips/README.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Voxelwise modeling framework</p>
+        <p class="prev-next-title">Shortclips tutorial</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
