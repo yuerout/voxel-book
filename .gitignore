@@ -8,6 +8,7 @@ __pycache__
 .idea/
 build/
 dist/
+.conda/
 
 # Documentation build
 doc/_build/
